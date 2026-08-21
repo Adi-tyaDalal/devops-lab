@@ -4,20 +4,29 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the application...'
+                echo 'Building application...'
+                sh 'python3 -m py_compile app.py'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running unit tests...'
+                sh 'python3 test.py'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
+                echo 'Deploying application...'
+                sh 'echo "Deployment successful!"'
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline execution finished.'
         }
     }
 }
