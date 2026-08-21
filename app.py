@@ -7,6 +7,7 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"<h1>DevOps Lab Application</h1><p>Deployment successful!</p>")
 
-server = HTTPServer(("0.0.0.0", 8080), Handler)
-print("Application running on port 8080")
-server.serve_forever()
+if __name__ == "__main__":
+    server = HTTPServer(("0.0.0.0", 8081), Handler)
+    print("Application running on port 8081")
+    server.serve_forever()

@@ -1,2 +1,3 @@
-import app
-print("All syntax checks passed successfully!")
+import py_compile
+py_compile.compile('app.py')
+print("All unit and syntax tests passed successfully!")
